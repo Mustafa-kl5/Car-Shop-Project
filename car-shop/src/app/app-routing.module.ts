@@ -1,15 +1,31 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CarSlotComponent } from './car-slot/car-slot.component';
-import { ContactUsComponent } from './contact-us/contact-us.component';
-import { HomeComponent } from './home/home.component';
+import { AuthComponent } from './auth/auth.component';
 
-const routes: Routes = [{path: '', redirectTo: 'home', pathMatch: 'full'},{ path: 'home', component: HomeComponent },
-{ path: 'contact-us', component: ContactUsComponent },{ path: 'carslot', component: CarSlotComponent }
+const routes: Routes = [
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  {
+    path: 'home',
+    loadChildren: () =>
+      import('./modules/home/home.module').then((m) => m.HomeModule),
+  },
+  {
+    path: 'carslot',
+    loadChildren: () =>
+      import('./modules/car-slot/car-slot.module').then((m) => m.CarSlotModule),
+  },
+  {
+    path: 'contact-us',
+    loadChildren: () =>
+      import('./modules/contact-us/contact-us.module').then(
+        (m) => m.ContactUsModule
+      ),
+  },
+  { path: 'auth', component: AuthComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -9,6 +9,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { CarSlotComponent } from './car-slot/car-slot.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

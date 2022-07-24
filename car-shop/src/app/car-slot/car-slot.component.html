@@ -23,12 +23,12 @@
             </div>
         </div>
         <div class="body">
-            <div class="car-price">12.155.11$</div>
-            <div class="car-image">
-                <img src="https://i.ibb.co/zR8sBJf/c200-removebg-preview.png" />
+            <div class="car-price ">{{cars[currentIndex]?.price}}</div>
+            <div class="car-image ">
+                <img class="animate__animated animate__bounceIn" src="{{cars[currentIndex]?.carImage}}" />
             </div>
             <div class="car-show-control">
-                <div>
+                <div (click)="nextItem()">
                     <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 19.252V5.25195" stroke="#343A40" stroke-width="2" stroke-linecap="round"
                             stroke-linejoin="round" />
@@ -36,8 +36,8 @@
                             stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                 </div>
-                <div class="numberOf-item">01</div>
-                <div>
+                <div class="numberOf-item">{{currentIndex+1}}</div>
+                <div (click)="prevItem()">
                     <svg width="30" height="31" viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="15" cy="15.252" r="15" fill="#343A40" />
                         <g clip-path="url(#clip0_28_624)">
@@ -59,17 +59,10 @@
 </div>
 <div class="endOfPage">
     <div class="item">
-        2020 <br> <span class="sub-item">Year</span>
+        {{cars[currentIndex]?.year}} <br> <span class="sub-item">Year</span>
     </div>
-    <div class="item"> 3.650 <br> <span class="sub-item">Mailage </span></div>
-    <div class="item"> Mercedes Benz <br> <span class="sub-item">C-Class 2020 </span></div>
-    <button class="details">
-        Full Details <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M6.7998 14.9282H24.161" stroke="#343A40" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" />
-            <path d="M15.4805 6.24756L24.1611 14.9282L15.4805 23.6088" stroke="#343A40" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
+    <div class="item"> {{cars[currentIndex]?.milAge}}<br> <span class="sub-item">Mailage </span></div>
+    <div class="item"> {{cars[currentIndex]?.manufacturerName}} <br> <span
+            class="sub-item">{{cars[currentIndex]?.carType}} </span></div>
 
-    </button>
 </div>

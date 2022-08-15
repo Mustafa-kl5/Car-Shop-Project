@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class CarSlotComponent implements OnInit {
   cars = []
 
-  index: number = 0
+  index = 0
   constructor(private http: HttpClient) {
     this.getCar();
 
